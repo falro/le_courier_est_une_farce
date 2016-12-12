@@ -1,28 +1,28 @@
 == README
+#Util Command
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Creation branch: git checkout -b ________
+Switch branch: git checkout _______
+view branch: git branch
 
-Things you may want to cover:
+Creation commit
+Git add
+Git commit -m '______'
 
-* Ruby version
+#Le courier est une farce
+#fonctionnalité primaire:
+authentification    => Devise       (gem)
+search engine       => ransack      (gem)
+adress auto complet => API Google   (gem)
+Payments            => stripe       (gem) (create a compte)
+mail                => Mail gun     (gem) (create a compte)
+administration      => administrate (gem)
 
-* System dependencies
+#This README's part contains all functionnality's details for the Web-site.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Sign up = All user must subscript on the site for use all web-site's functionnalities
+Sign In = User must be connected after subscription for use all web-site's functionnalitiesgi 
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+

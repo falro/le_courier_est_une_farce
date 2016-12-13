@@ -36,6 +36,8 @@ ruby "2.3.0"
 
 gem 'devise'
 gem 'mailgun-ruby', '~>1.1.2'
+gem "administrate", "~> 0.3.0"
+gem 'bourbon'
 
 
 # Use ActiveModel has_secure_password

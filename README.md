@@ -19,12 +19,12 @@ MAJ: heroku run rake db:migrate
 
 #Le courier est une farce
 #fonctionnalité primaire:
-authentification    => Devise       (gem)
+authentification    => Devise       (gem)                       (Installé)
 search engine       => ransack      (gem)
 adress auto complet => API Google   (gem)
 Payments            => stripe       (gem) (create a compte)
-mail                => Mail gun     (gem) (create a compte)
-administration      => administrate (gem)
+mail                => Mail gun     (gem) (create a compte)     (Installé)
+administration      => administrate (gem)                       (Installé)
 
 #This README's part contains all functionnality's details for the Web-site.
 

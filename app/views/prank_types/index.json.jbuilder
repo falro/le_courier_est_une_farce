@@ -1,0 +1,1 @@
+json.array! @prank_types, partial: 'prank_types/prank_type', as: :prank_type

@@ -1,0 +1,1 @@
+json.partial! "prank_types/prank_type", prank_type: @prank_type

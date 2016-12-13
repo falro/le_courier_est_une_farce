@@ -34,11 +34,64 @@
   //text-decoration: none;
 }
 
+// Header
+.navbar-header-personnalized{
+    margin-right: 5%;
+    float: left;
+}
+
+.navbarContainer{
+    border-radius: 4px;
+    position: relative;
+    min-height: 50px;
+    border: 1px solid transparent;
+    background-color: #ee6457;
+    color: red;
+}
+
+.headerTitleSite{
+    color: white;
+    font-size: 140%;
+    vertical-align: middle;
+    line-height: 47.5px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.headerTitleSite:hover{
+    color: black;
+    text-decoration:none; 
+}
+
+.headerNavElement{
+    color: white;
+}
+
+.headerNavElement:hover{
+    color: black;
+    text-decoration:none; 
+}
+
+// -------------------------------------------------------------------------------------------------------------------------------------------
+
+// footer
+// -------------------------------------------------------------------------------------------------------------------------------------------
+.footerContent{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+// -------------------------------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------------------------------
+
 // home
 // -------------------------------------------------------------------------------------------------------------------------------------------
+.containerHeader{
+    width: 100%;
+}
+
 .intro-header {
-    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-    padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
     background: url(font-header-home.jpg) no-repeat center center;
@@ -89,6 +142,11 @@
     .intro-divider {
         width: 100%;
     }
+}
+
+.containerService{
+    margin-top: 30px; 
+    margin-bottom: 30px;
 }
 // -------------------------------------------------------------------------------------------------------------------------------------------
 

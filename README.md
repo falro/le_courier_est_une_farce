@@ -4,6 +4,7 @@
 Creation branch: git checkout -b ________
 Switch branch: git checkout _______
 view branch: git branch
+delete branch: git branch -d ______
 
 Creation commit
 Git add

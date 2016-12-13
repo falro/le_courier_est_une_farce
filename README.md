@@ -7,7 +7,16 @@
 Switch branch: git checkout _______
 view branch: git branch
 delete branch: git branch -d ______
+
+
+Heroku command: 
+heroku login
+git push heroku develop
+MAJ : heroku run rake db:migrate
+
+
 git pull origin develop
+
 Creation commit
 Git add .
 Git commit -m '______'

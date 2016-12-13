@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+<h1>View element of "Prank Type"</h1>
+
+<h1 class="display-1">Prank Type</h1><br>
+
+<div class="titleForShow">Name</div>
+<p><%= @prank_type.name %></p><br>
+
+
+<div class="titleForShow">
+    Desciption
+</div>
+<p><%= @prank_type.description %></p>
+
+
+<%= link_to 'Edit', edit_prank_type_path(@prank_type) %> |
+<%= link_to 'Back', prank_types_path %>

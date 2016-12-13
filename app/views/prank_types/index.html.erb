@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Prank Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <table class="table">
+     <thead class="thead-default">
+          <tr class="active">
+           <th>name</th>
+           <th>description</th>
+           <th>Show</th>
+           <th>Edit</th>
+           <th>Destroy</th>
+         </tr>
+     </thead>
+     <tbody>
+        <% @prank_types.each do |prank_type| %>
+         <tr>
+          <td><%= prank_type.name %></td>
+          <td><%= prank_type.description %></td>
+          <td><%= link_to 'Show', prank_type %></td>
+          <td><%= link_to 'Edit', edit_prank_type_path(prank_type) %></td>
+          <td><%= link_to 'Destroy', prank_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         </tr>
+        <% end %>
+     </tbody>
+    </table>
+  </tbody>
+<br>
+<div style="text-align: center; margin:auto">
+  <button type="button" class="btn btn-primary" style="margin:5%; width= 40%;  padding: 15px 32px;">
+    <%= link_to 'New Prank type', new_prank_type_path, {:style=>'color:#FFFFFF; font-size: 250%;', :class => "css_class"} %>
+  </button>
+</div>
+
+ 

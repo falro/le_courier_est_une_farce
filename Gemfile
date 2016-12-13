@@ -58,7 +58,7 @@ group :development do
   
   gem 'devise'
   
- 
+  gem 'mailgun-ruby', '~>1.1.2'
   
 end
 

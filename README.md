@@ -1,14 +1,21 @@
 == README
 #Util Command
+1) Switch branch: git checkout develop
+2) git pull origin develop
+3) Creation branch: git checkout -b feature/
 
-Creation branch: git checkout -b ________
 Switch branch: git checkout _______
 view branch: git branch
 delete branch: git branch -d ______
-
+git pull origin develop
 Creation commit
-Git add
+Git add .
 Git commit -m '______'
+
+#heroku
+heroku login
+MAJ: heroku run rake db:migrate
+
 
 #Le courier est une farce
 #fonctionnalité primaire:

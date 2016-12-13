@@ -35,6 +35,10 @@ Payments            => stripe       (gem) (create a compte)
 mail                => Mail gun     (gem) (create a compte)     (Installé)
 administration      => administrate (gem)                       (Installé)
 
+#Administrate 
+#Pour ajouter une nouvelle catégorie d'aministration créé un model et utiliser la commande suivante:
+rails generate administrate:dashboard NomModele (respecter cette nomenclature et enlever les _)
+
 #This README's part contains all functionnality's details for the Web-site.
 
 Sign up = All user must subscript on the site for use all web-site's functionnalities

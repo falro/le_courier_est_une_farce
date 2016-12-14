@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PrankTypeDashboard < Administrate::BaseDashboard
+class TypeLetterDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -44,10 +44,10 @@ class PrankTypeDashboard < Administrate::BaseDashboard
     :description,
   ].freeze
 
-  # Overwrite this method to customize how prank types are displayed
+  # Overwrite this method to customize how type letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prank_type)
-  #   "PrankType ##{prank_type.id}"
+  # def display_resource(type_letter)
+  #   "TypeLetter ##{type_letter.id}"
   # end
 end

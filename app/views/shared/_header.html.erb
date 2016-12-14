@@ -35,6 +35,7 @@
               <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
             </li>
             <% end %>
+            <li><%= current_user.admin %></li>
           </ul>
         </div>
         <!-- registration link -->

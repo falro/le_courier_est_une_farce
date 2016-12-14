@@ -1,0 +1,51 @@
+<div class="containerTitleForm">
+  <h1 class="titleForm">Inscription</h1>
+  <h2 class="titleFormMore">C'est gratuit et ça le restera toujours</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <!-- Email user -->
+  <div class="field">
+    <div class="titleForLabelOnForm">
+      <%= f.label :email %><br />
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.email_field :email, autofocus: true, class: 'textfieldForForm' %>
+    </div>
+  </div>
+
+  <!-- Password user -->
+  <div class="field">
+    <div class="titleForLabelOnForm">
+      <%= f.label :password %>
+    </div>
+    <% if @minimum_password_length %>
+      <div class="containerTextfieldForm">
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+      </div>
+    <% end %><br />
+    <div class="containerTextfieldForm">
+      <%= f.password_field :password, autocomplete: "off",  class: 'textfieldForForm' %>
+    </div>
+  </div>
+
+  <!-- Password confirmation -->
+  <div class="field">
+    <div class="titleForLabelOnForm">
+      <%= f.label :password_confirmation %><br />
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.password_field :password_confirmation, autocomplete: "off",  class: 'textfieldForForm' %>
+    </div>
+  </div>
+
+  <div class="containerTextfieldForm">
+    <div class="actions">
+      <%= f.submit "Inscription", class: 'buttonForm' %>
+    </div>
+  <div class="containerTextfieldForm">
+<% end %>
+
+<%= render "devise/shared/links" %>

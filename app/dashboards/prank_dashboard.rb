@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PrankTypeDashboard < Administrate::BaseDashboard
+class PrankDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,9 +8,13 @@ class PrankTypeDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    prank_type: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
-    description: Field::Text,
+    description: Field::String,
+    text: Field::String,
+    dateCreation: Field::DateTime,
+    photo: Field::Text,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -24,6 +28,7 @@ class PrankTypeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :prank_type,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -32,6 +37,8 @@ class PrankTypeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :photo,
+    :prank_type,
     :created_at,
     :updated_at,
   ].freeze
@@ -42,12 +49,14 @@ class PrankTypeDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :description,
+    :photo,
+    :prank_type,
   ].freeze
 
-  # Overwrite this method to customize how prank types are displayed
+  # Overwrite this method to customize how pranks are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prank_type)
-  #   "PrankType ##{prank_type.id}"
+  # def display_resource(prank)
+  #   "Prank ##{prank.id}"
   # end
 end

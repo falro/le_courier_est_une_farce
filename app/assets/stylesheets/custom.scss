@@ -166,3 +166,97 @@
     -moz-border-radius: 10;
     border-radius: 10px;
 }
+
+
+// -------------------------------------------------------------------------------------------------------------------------------------------
+
+//Container title for the form
+.containerTitleForm{
+    height:230px;
+}
+
+// Title for form
+.titleForm{
+    font-family: sans-serif;
+    color: #ee6457;    
+    text-align: center;
+    font-size: 400%;
+    vertical-align: middle;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+.titleFormMore{
+    font-family: sans-serif;
+    color: #ee6457;
+    text-align: center;
+    font-size: 250%;
+    font-weight: bold;
+}
+
+// Label for form 
+.titleForLabelOnForm{
+    font-family: sans-serif;
+    color:white; 
+    text-align: center; 
+    margin:auto;
+    font-size: 250%;
+    background-color: #ee6457;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 50px;
+    width: 45%;
+    
+    -webkit-border-radius: 25;
+    -moz-border-radius: 25;
+    border-radius: 25px;
+}
+
+// Container Textfield for form
+.containerTextfieldForm{
+    text-align: center;
+}
+
+// Textfield for form
+.textfieldForForm{
+    width: 45%;
+    padding: 12px 20px;
+    margin: auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 50px;
+}
+
+// Button for form
+.buttonForm {
+  outline:none;
+  height: 40px;
+  text-align: center;
+  width: 45%;
+  border-radius:40px;
+  background: #fff;
+  border: 2px solid #ee6457;
+  color: #ee6457;
+  letter-spacing:1px;
+  text-shadow:0;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 30px;
+}
+
+.buttonForm:hover{
+    color: white;
+    background: #ee6457;
+}
+
+.buttonForm:active{
+    letter-spacing: 2px; 
+}
+
+.buttonForm:after{
+    content:"SUBMIT";
+}

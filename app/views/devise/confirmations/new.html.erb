@@ -1,0 +1,26 @@
+<div class="containerTitleForm">
+  <h2 class="titleForm">Resend confirmation instructions</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <div class="titleForLabelOnForm">
+      <%= f.label :email %><br />
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), class: 'textfieldForForm' %>
+    </div>
+  </div>
+
+  <div class="containerTextfieldForm">
+    <div class="actions">
+      <%= f.submit "Resend confirmation instructions", class: 'buttonForm' %>
+    </div>
+  </div>
+<% end %>
+
+<div class="containerTextfieldForm">
+  <%= render "devise/shared/links" %>
+</div>

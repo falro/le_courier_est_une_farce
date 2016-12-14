@@ -64,4 +64,10 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  resources :charges
+  #Ressource for stipe
+  #Payment gem
+  
+  
 end

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :prank_types
+    resources :pranks
+    resources :type_letters
+    resources :letters
 
     root to: "users#index"
   end

@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PrankTypeDashboard < Administrate::BaseDashboard
+class LetterDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -8,6 +8,7 @@ class PrankTypeDashboard < Administrate::BaseDashboard
   # which determines how the attribute is displayed
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
+    type_letter: Field::BelongsTo,
     id: Field::Number,
     name: Field::String,
     description: Field::Text,
@@ -24,6 +25,7 @@ class PrankTypeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :type_letter,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -32,6 +34,7 @@ class PrankTypeDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :type_letter,
     :created_at,
     :updated_at,
   ].freeze
@@ -40,14 +43,15 @@ class PrankTypeDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :type_letter,
     :name,
     :description,
   ].freeze
 
-  # Overwrite this method to customize how prank types are displayed
+  # Overwrite this method to customize how letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prank_type)
-  #   "PrankType ##{prank_type.id}"
+  # def display_resource(letter)
+  #   "Letter ##{letter.id}"
   # end
 end

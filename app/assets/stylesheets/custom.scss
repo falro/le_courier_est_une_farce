@@ -65,12 +65,15 @@
 
 .headerNavElement{
     color: white;
+    white-space:nowrap;
 }
 
 .headerNavElement:hover{
     color: black;
     text-decoration:none; 
 }
+
+
 
 // -------------------------------------------------------------------------------------------------------------------------------------------
 

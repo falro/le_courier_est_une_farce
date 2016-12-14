@@ -7,30 +7,29 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-#users = User.create([{email: 'jeremy.petit3@free.fr'}, {password: 'azerty'}, {confirmation_password: 'azerty'}, {admin: true}])
-#users = User.create([{email: 'falcou.franck@gmail.com'}, {password: 'azerty'}, {password_confirmation: 'azerty'}, {admin: true}, {confirmed_at: '2016-12-14 10:40:22'}])
-#users = User.create([{email: 'falcou.franck@gmail.com'}, {password: 'azerty'}, {password_confirmation: 'azerty'}, {admin: true}])
-#users.toggle!(:admin)
+u1 = User.create(
+        email: "falcou.franck@gmail.com",
+        password: "azerty",
+        confirmed_at: "2016-12-14 13:18:01",
+        admin: true
+    )
 
-User.create(
-    email: "falcou.franck@gmail.com",
+puts u1.errors.full_messages
+
+u2 = User.create(
+    email: "test@gmail.com",
     password: "azerty",
-    confirmed_at: "2016-12-14 13:18:01.71971",
-    admin: true
+    confirmed_at: "2016-12-14 13:18:01",
 )
 
-User.create(
+puts u2.errors.full_messages
+
+u3 = User.create(
     email: "jeremy.petit3@free.fr",
     password: "azerty",
-    confirmed_at: "2016-12-14 13:19:01.71971",
+    confirmed_at: "2016-12-14 13:18:01",
     admin: true
 )
 
-User.create(
-    email: "user@gmail.com ",
-    password: "azerty",
-    confirmed_at: "2016-12-14 14:18:01.71971",
-    admin: false
-)
+puts u3.errors.full_messages
 
-#user = User.create! :email => 'jeremy.petit3@free.fr', :password => 'azerty', :password_confirmation => 'azerty'

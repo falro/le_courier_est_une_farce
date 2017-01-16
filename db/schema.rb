@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214081405) do
+ActiveRecord::Schema.define(version: 20170116101932) do
 
   create_table "letters", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
     t.integer  "type_letter_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "letters", ["type_letter_id"], name: "index_letters_on_type_letter_id"
@@ -45,8 +49,12 @@ ActiveRecord::Schema.define(version: 20161214081405) do
     t.date     "dateCreation"
     t.text     "photo"
     t.integer  "prank_type_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "pranks", ["prank_type_id"], name: "index_pranks_on_prank_type_id"

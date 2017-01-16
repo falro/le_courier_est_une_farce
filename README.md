@@ -31,7 +31,8 @@ MAJ: heroku run rake db:migrate
 authentification    => Devise       (gem)                       (Installé)
 search engine       => ransack      (gem)
 adress auto complet => API Google   (gem)
-Payments            => stripe       (gem) (create a compte)
+paperclip           => Image        (gem)
+Payments            => stripe       (gem) (create a compte)     (Installé)
 mail                => Mail gun     (gem) (create a compte)     (Installé)
 administration      => administrate (gem)                       (Installé)
 
@@ -45,5 +46,5 @@ Sign up = All user must subscript on the site for use all web-site's functionnal
 Sign In = User must be connected after subscription for use all web-site's functionnalitiesgi 
 
 
-
-
+#Pour le Layout administrate
+Rails generate administrate:views:layout

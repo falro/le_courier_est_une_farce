@@ -39,6 +39,7 @@ gem 'mailgun-ruby', '~>1.1.2'
 gem "administrate", "~> 0.3.0"
 gem 'bourbon'
 gem 'stripe'
+gem "paperclip", "~> 5.0.0"
 
 
 # Use ActiveModel has_secure_password

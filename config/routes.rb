@@ -19,6 +19,9 @@ Rails.application.routes.draw do
     
   # Prank Type : page
   resources :prank_types
+  
+    # Command : page
+  resources :commands
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

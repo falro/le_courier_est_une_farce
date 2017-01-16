@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Commands</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3">
+        <%= form_for Command.new do |f| %>
+         <%= f.collection_select :type_letter, TypeLetter.all.order(:name),:name, :name, include_blank: true %>
+         <%= f.collection_select :letter, Letter.all.order(:name),:name, :name, include_blank: true %>
+         <%= f.collection_select :prank_type, PrankType.all.order(:name), :name, :name, include_blank: true %>
+         <%= f.collection_select :prank, Prank.all.order(:name),:name, :name, include_blank: true %>
+        <% end %>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @commands.each do |command| %>
+      <tr>
+        <td><%= link_to 'Show', command %></td>
+        <td><%= link_to 'Edit', edit_command_path(command) %></td>
+        <td><%= link_to 'Destroy', command, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Command', new_command_path %>

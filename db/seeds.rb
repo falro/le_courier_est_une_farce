@@ -18,7 +18,7 @@ puts u1.errors.full_messages
 u2 = User.create(
     email: "test@gmail.com",
     password: "azerty",
-    confirmed_at: "2016-12-14 13:18:01",
+    confirmed_at: "2016-12-14 13:18:01",git 
 )
 
 puts u2.errors.full_messages

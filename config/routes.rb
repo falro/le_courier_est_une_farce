@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     resources :pranks
     resources :type_letters
     resources :letters
-
+    
+    
     root to: "users#index"
   end
 

@@ -45,5 +45,10 @@ Sign up = All user must subscript on the site for use all web-site's functionnal
 Sign In = User must be connected after subscription for use all web-site's functionnalitiesgi 
 
 
+# database 
+rake db:migrate => migration 
+rake db:rollback => rollback de la base 
+
+
 
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :type_letters
     resources :letters
     
-    get '/' => 'welcome#index'
+    root to: "users#index"
     
     
   end
@@ -20,6 +20,9 @@ Rails.application.routes.draw do
     
   # Prank Type : page
   resources :prank_types
+  
+    # Command : page
+  resources :commands
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

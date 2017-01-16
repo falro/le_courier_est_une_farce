@@ -31,6 +31,7 @@ MAJ: heroku run rake db:migrate
 authentification    => Devise       (gem)                       (Installé)
 search engine       => ransack      (gem)
 adress auto complet => API Google   (gem)
+paperclip           => Image        (gem)
 Payments            => stripe       (gem) (create a compte)     (Installé)
 mail                => Mail gun     (gem) (create a compte)     (Installé)
 administration      => administrate (gem)                       (Installé)

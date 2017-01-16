@@ -16,26 +16,26 @@
       <div class="login/logout">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <% if user_signed_in? %>
+           <% if user_signed_in? %>
             
-              <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "headerNavElement") %> </li>
-              <li><%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %></li>
-            <% else %>
-                  <li><%= link_to('Login', new_user_session_path, :class => "headerNavElement") %></li>  
-                  <li><%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %></li>
+            <li>
+              <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "headerNavElement") %> 
+              <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
+            </li>
+            <% if current_user.admin %>
+              <li>
+               <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
+              </li>
             <% end %>
+          <% else %>
+            <li>
+              <%= link_to('Login', new_user_session_path, :class => "headerNavElement") %>  
+              <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
+            </li>
+          <% end %>
           </ul>
-            <ul class="nav navbar-nav navbar-right"> 
-              <% if current_user.admin %>
-                  <li><%= link_to('Admin', admin_root_path, :class => "headerNavElement") %></li>
-              <% end %>
-            </ul>
-          
         </div>
         <!-- registration link -->
       </div>
     </div>
 </nav>
-
-
-

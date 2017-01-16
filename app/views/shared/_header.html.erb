@@ -1,34 +1,41 @@
- <div class="login/logout">
+<nav class="navbarContainer">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header-personnalized">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to I18n.t('views.application.name', default: 'Le courrier est une farce'), root_path, class: 'headerTitleSite' %>
+    </div>
+    
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <% if user_signed_in? %>
-          <% if user_signed_in? %>
+      <!-- Login logout link -->
+      <div class="login/logout">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+           <% if user_signed_in? %>
+            
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "headerNavElement") %> 
               <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
             </li>
             <% if current_user.admin %>
-            <li>
-              <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
-            </li>
-            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "headerNavElement") %> </li>
-            <li><%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %></li>
-            <% else %>
-              <li><%= link_to('Login', new_user_session_path, :class => "headerNavElement") %></li>  
-              <li><%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %></li>
-            <% end %>
-            <% else %>
               <li>
-                <%= link_to('Login', new_user_session_path, :class => "headerNavElement") %>  
-                <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
+               <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
               </li>
+            <% end %>
+          <% else %>
+            <li>
+              <%= link_to('Login', new_user_session_path, :class => "headerNavElement") %>  
+              <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
+            </li>
           <% end %>
-      </ul>
-      <ul class="nav navbar-nav navbar-right"> 
-        <% if current_user.admin %>
-          <li><%= link_to('Admin', admin_root_path, :class => "headerNavElement") %></li>
-        <% end %>
-      </ul>
+          </ul>
+        </div>
+        <!-- registration link -->
+      </div>
     </div>
-    <!-- registration link -->
-  </div>
+</nav>

@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116101932) do
+ActiveRecord::Schema.define(version: 20170116154951) do
+
+  create_table "commands", force: :cascade do |t|
+    t.integer  "prank_type_id"
+    t.integer  "prank_id"
+    t.integer  "letter_id"
+    t.integer  "type_letter_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "commands", ["letter_id"], name: "index_commands_on_letter_id"
+  add_index "commands", ["prank_id"], name: "index_commands_on_prank_id"
+  add_index "commands", ["prank_type_id"], name: "index_commands_on_prank_type_id"
+  add_index "commands", ["type_letter_id"], name: "index_commands_on_type_letter_id"
 
   create_table "letters", force: :cascade do |t|
     t.string   "name"

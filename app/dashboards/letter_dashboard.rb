@@ -12,6 +12,7 @@ class LetterDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     description: Field::Text,
+    photo: Field::PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze
@@ -34,6 +35,7 @@ class LetterDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :photo,
     :type_letter,
     :created_at,
     :updated_at,
@@ -46,6 +48,7 @@ class LetterDashboard < Administrate::BaseDashboard
     :type_letter,
     :name,
     :description,
+    :photo,
   ].freeze
 
   # Overwrite this method to customize how letters are displayed

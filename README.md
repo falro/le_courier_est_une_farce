@@ -31,7 +31,7 @@ MAJ: heroku run rake db:migrate
 authentification    => Devise       (gem)                       (Installé)
 search engine       => ransack      (gem)
 adress auto complet => API Google   (gem)
-paperclip           => Image        (gem)
+paperclip           => Image        (gem)                       (Installé)
 Payments            => stripe       (gem) (create a compte)     (Installé)
 mail                => Mail gun     (gem) (create a compte)     (Installé)
 administration      => administrate (gem)                       (Installé)
@@ -44,14 +44,6 @@ rails generate administrate:dashboard NomModele (respecter cette nomenclature et
 
 Sign up = All user must subscript on the site for use all web-site's functionnalities
 Sign In = User must be connected after subscription for use all web-site's functionnalitiesgi 
-
-
-# database 
-rake db:migrate => migration 
-rake db:rollback => rollback de la base 
-
-
-
 
 
 #Pour le Layout administrate

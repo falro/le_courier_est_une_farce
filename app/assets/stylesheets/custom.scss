@@ -73,10 +73,7 @@
     text-decoration:none; 
 }
 
-
-
 // -------------------------------------------------------------------------------------------------------------------------------------------
-
 // footer
 // -------------------------------------------------------------------------------------------------------------------------------------------
 .footerContent{
@@ -97,7 +94,7 @@
 .intro-header {
     text-align: center;
     color: #f8f8f8;
-    background: url(font-header-home.jpg) no-repeat center center;
+    background: asset-url("font-header-home.jpg") no-repeat center center;
     background-size: cover;
 }
 

@@ -14,7 +14,7 @@ class PrankDashboard < Administrate::BaseDashboard
     description: Field::String,
     text: Field::String,
     dateCreation: Field::DateTime,
-    photo: Field::Text,
+    photo: Field::PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
   }.freeze

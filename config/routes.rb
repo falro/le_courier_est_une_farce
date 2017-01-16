@@ -7,8 +7,7 @@ Rails.application.routes.draw do
     resources :letters
     
     root to: "users#index"
-    
-    
+
   end
 
   devise_for :users

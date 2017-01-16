@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :type_letters
     resources :letters
     
-    
     root to: "users#index"
+
   end
 
   devise_for :users
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-    root 'welcome#index'
+  root 'welcome#index'
     
   # Prank Type : page
   resources :prank_types

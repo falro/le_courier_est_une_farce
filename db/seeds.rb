@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 u1 = User.create(
         email: "falcou.franck@gmail.com",
         password: "azerty",
@@ -31,3 +32,4 @@ u3 = User.create(
 )
 
 puts u3.errors.full_messages
+

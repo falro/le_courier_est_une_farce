@@ -6,9 +6,8 @@ Rails.application.routes.draw do
     resources :type_letters
     resources :letters
     
-    get '/' => 'welcome#index'
-    
-    
+    root to: "users#index"
+
   end
 
   devise_for :users

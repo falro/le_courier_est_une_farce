@@ -17,6 +17,11 @@ class PrankDashboard < Administrate::BaseDashboard
     dateCreation: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    price: Field::Number.with_options(
+    title: "Price",
+    prefix: "$",
+    multiplier: 0.01,
+    decimals: 2,),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -28,6 +33,7 @@ class PrankDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :price,
     :prank_type,
   ].freeze
 
@@ -37,6 +43,7 @@ class PrankDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :price,
     :photo,
     :prank_type,
     :created_at,
@@ -49,6 +56,7 @@ class PrankDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :description,
+    :price,
     :photo,
     :prank_type,
   ].freeze

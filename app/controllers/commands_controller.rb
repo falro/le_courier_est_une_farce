@@ -2,9 +2,9 @@ class CommandsController < ApplicationController
   before_action :set_command, only: [:show, :edit, :update, :destroy]
   
   def price
-    @prank = @prank.find(params[:prank_id])
-    @letter = @letter.find(params[:letter_id])
-    @price = (@prank.price*@letter.weight)+@letter.price
+    @prank = Prank.find(params[:prank_id])
+    @letter = Letter.find(params[:letter_id])
+    @price = (@prank.price*@letter.weight/10)+@letter.price
   end
 
   # GET /commands

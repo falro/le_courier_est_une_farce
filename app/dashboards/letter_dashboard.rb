@@ -15,6 +15,7 @@ class LetterDashboard < Administrate::BaseDashboard
     photo: PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    weight: Field::Number,
     price: Field::Number.with_options(
     title: "Price",
     prefix: "$",
@@ -32,6 +33,7 @@ class LetterDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :price,
+    :weight,
     :type_letter,
   ].freeze
 
@@ -42,6 +44,7 @@ class LetterDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :price,
+    :weight,
     :photo,
     :type_letter,
     :created_at,
@@ -56,6 +59,7 @@ class LetterDashboard < Administrate::BaseDashboard
     :name,
     :description,
     :price,
+    :weight,
     :photo,
   ].freeze
 

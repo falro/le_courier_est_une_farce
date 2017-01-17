@@ -11,9 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170117112906) do
-
 
   create_table "commands", force: :cascade do |t|
     t.integer  "prank_type_id"

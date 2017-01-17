@@ -4,4 +4,7 @@ class Prank < ActiveRecord::Base
   validates_attachment_content_type :photo, content_type: /\Aimage\/.*\z/
   validates :name, :description, :price, presence: true
   validates :price, numericality: true, numericality: { greater_than: 0}
+  validates :name, :description, length: {minimum: 2}
+  validates :name, length: {maximum: 20}
+  validates :description, length: {maximum: 500}
 end

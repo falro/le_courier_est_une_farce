@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :pranks
     resources :type_letters
     resources :letters
+    resources :commands
     
     root to: "users#index"
 

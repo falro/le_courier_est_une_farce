@@ -37,6 +37,7 @@ class CommandsController < ApplicationController
   # POST /commands.json
   def create
     @command = Command.new(command_params)
+    # @command = Command.new(params[:command])
 
     respond_to do |format|
       format.js
@@ -82,6 +83,6 @@ class CommandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def command_params
-      params.fetch(:command, {})
+      params.require(:command).permit(:prank_type_id, :prank_id, :type_letter_id, :letter_id, :message, :totalPrice)
     end
 end

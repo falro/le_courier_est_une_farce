@@ -5,6 +5,7 @@ class CommandsController < ApplicationController
   # GET /commands.json
   def index
     @commands = Command.all
+    @command = Command.new
   end
 
   # GET /commands/1
@@ -32,6 +33,7 @@ class CommandsController < ApplicationController
     @command = Command.new(command_params)
 
     respond_to do |format|
+      format.js
       if @command.save
         format.html { redirect_to @command, notice: 'Command was successfully created.' }
         format.json { render :show, status: :created, location: @command }

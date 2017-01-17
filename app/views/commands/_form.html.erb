@@ -1,17 +1,42 @@
 <%= form_for(@command) do |f| %>
-  <% if @command.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@command.errors.count, "error") %> prohibited this command from being saved:</h2>
-
-      <ul>
-      <% @command.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <div class="field">
+  <%= f.label :prank_type %> <br />
+  <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
+  </div>
+  <div class="field">
+  <%= f.label :prank %> <br />
+  <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
+  </div>
+  <br>
+  <br>
+  <%= f.collection_select :type_letter, TypeLetter.all.order(:name), :name, :name, include_blank: true %>
+  <%= f.collection_select :letter, Letter.all.order(:name), :name, :name, include_blank: true %>
+      
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %>   
   </div>
 <% end %>
+
+<script>
+  jQuery(function() {
+  var states;
+  $('#command_prank_id').parent().hide();
+    states = $('#command_prank_id').html();
+    console.log(states);
+    return $('#command_prank_type_id').change(function() {
+      var country, escaped_country, options;
+      country = $('#command_prank_type_id :selected').text();
+      escaped_country = country.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(states).filter("optgroup[label=" + escaped_country + "]").html();
+      console.log(options);
+      if (options) {
+        $('#command_prank_id').html(options);
+        return $('#command_prank_id').parent().show();
+      } else {
+        $('#command_prank_id').empty();
+        return $('#command_prank_id').parent().hide();
+      }
+    });
+  });
+  
+</script>

@@ -24,6 +24,9 @@
             <li>
               <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
             </li>
+            <li>
+              <%= link_to('Order', new_command_path, :class => "headerNavElement") %>
+            </li>
             <% if current_user.admin %>
               <li>
                <%= link_to('Administration', admin_users_path, :class => "headerNavElement") %>
@@ -35,6 +38,9 @@
             </li>
             <li>
               <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
+            </li>
+             <li>
+              <%= link_to('Order', new_command_path, :class => "headerNavElement") %>
             </li>
           <% end %>
           </ul>

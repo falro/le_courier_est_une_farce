@@ -16,9 +16,6 @@
           
           <br>
           <br>
-          <%= f.collection_select :type_letter, TypeLetter.all.order(:name), :name, :name, include_blank: true %>
-          <%= f.collection_select :letter, Letter.all.order(:name), :name, :name, include_blank: true %>
-          
           <div class="actions">
             <%= f.submit %>   
           </div>

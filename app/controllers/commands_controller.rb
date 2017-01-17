@@ -1,10 +1,17 @@
 class CommandsController < ApplicationController
   before_action :set_command, only: [:show, :edit, :update, :destroy]
+  
+  def price
+    @prank = Prank.find(params[:prank_id])
+    @letter = Letter.find(params[:letter_id])
+    @price = (@prank.price*@letter.weight/10)+@letter.price
+  end
 
   # GET /commands
   # GET /commands.json
   def index
     @commands = Command.all
+    @command = Command.new
   end
 
   # GET /commands/1
@@ -32,6 +39,7 @@ class CommandsController < ApplicationController
     @command = Command.new(command_params)
 
     respond_to do |format|
+      format.js
       if @command.save
         format.html { redirect_to @command, notice: 'Command was successfully created.' }
         format.json { render :show, status: :created, location: @command }

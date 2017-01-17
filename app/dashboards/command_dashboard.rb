@@ -1,6 +1,6 @@
 require "administrate/base_dashboard"
 
-class PrankDashboard < Administrate::BaseDashboard
+class CommandDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
   # a hash that describes the type of each of the model's fields.
   #
@@ -9,19 +9,13 @@ class PrankDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     prank_type: Field::BelongsTo,
+    prank: Field::BelongsTo,
+    letter: Field::BelongsTo,
+    type_letter: Field::BelongsTo,
     id: Field::Number,
-    name: Field::String,
-    description: Field::String,
-    text: Field::String,
-    photo: PaperclipField,
-    dateCreation: Field::DateTime,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
-    price: Field::Number.with_options(
-    title: "Price",
-    prefix: "$",
-    multiplier: 0.01,
-    decimals: 2,),
+    message: Field::String,
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -30,41 +24,39 @@ class PrankDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :id,
-    :name,
-    :description,
-    :price,
     :prank_type,
+    :prank,
+    :letter,
+    :type_letter,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :id,
-    :name,
-    :description,
-    :price,
-    :photo,
     :prank_type,
+    :prank,
+    :letter,
+    :type_letter,
+    :id,
     :created_at,
-    :updated_at,
+    :message,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :name,
-    :description,
-    :price,
-    :photo,
     :prank_type,
+    :prank,
+    :letter,
+    :type_letter,
+    :message,
   ].freeze
 
-  # Overwrite this method to customize how pranks are displayed
+  # Overwrite this method to customize how commands are displayed
   # across all pages of the admin dashboard.
   #
-  def display_resource(prank)
-    "#{prank.name}"
-  end
+  # def display_resource(command)
+  #   "Command ##{command.id}"
+  # end
 end

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :pranks
     resources :type_letters
     resources :letters
+    resources :commands
     
     root to: "users#index"
 
@@ -21,7 +22,11 @@ Rails.application.routes.draw do
   resources :prank_types
   
     # Command : page
-  resources :commands
+  resources :commands do
+    collection do
+      get 'price'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

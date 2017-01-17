@@ -1,17 +1,92 @@
 <%= form_for(@command) do |f| %>
-  <% if @command.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@command.errors.count, "error") %> prohibited this command from being saved:</h2>
-
-      <ul>
-      <% @command.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <div class="field">
+    <%= f.label :prank_type %> <br />
+    <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
+  </div>
+  <div class="field">
+    <%= f.label :prank %> <br />
+    <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
+  </div>
+  <br>
+  <br>
+  <div class="field">
+    <%= f.label :type_letter %> <br />
+    <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
+  </div>
+  <div class="field">
+    <%= f.label :letter %> <br />
+    <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
+  </div>
+  
+   <div class="field">
+    <%= link_to 'Calc', '#', class: 'btn btn-success', id: 'calc_price' %>
+  </div>
+  
+  <div class="containerTextfieldForm">
+    <%= f.label :message %> <br />
+    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+    
+    <%= f.label :totalPrice %> <br /> 
+    <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit %>   
   </div>
 <% end %>
+
+<script>
+  jQuery(function() {
+    var states;
+    $('#command_letter_id').parent().hide();
+    states = $('#command_letter_id').html();
+    console.log(states);
+    $('#command_type_letter_id').change(function() {
+      var country, escaped_country, options;
+      country = $('#command_type_letter_id :selected').text();
+      escaped_country = country.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(states).filter("optgroup[label=" + escaped_country + "]").html();
+      console.log(options);
+      if (options) {
+        $('#command_letter_id').html(options);
+        $('#command_letter_id').parent().show();
+      } else {
+        $('#command_letter_id').empty();
+        $('#command_letter_id').parent().hide();
+      }
+    });
+
+    var states2;
+    $('#command_prank_id').parent().hide();
+    states2 = $('#command_prank_id').html();
+    console.log(states2);
+    $('#command_prank_type_id').change(function() {
+      var country2, escaped_country2, options2;
+      country2 = $('#command_prank_type_id :selected').text();
+      escaped_country2 = country2.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options2 = $(states2).filter("optgroup[label=" + escaped_country2 + "]").html();
+      console.log(options2);
+      if (options2) {
+        $('#command_prank_id').html(options2);
+        $('#command_prank_id').parent().show();
+      } else {
+        $('#command_prank_id').empty();
+        $('#command_prank_id').parent().hide();
+      }
+    });
+    
+    $('#calc_price').on('click', function() {
+      prank_id = $('#command_prank_id :selected').val();
+      letter_id = $('#command_letter_id :selected').val();
+      
+      $.ajax({
+        url: "/commands/price?prank_id=" + prank_id + "&letter_id=" + letter_id
+      }).done(function(html) {
+        $("#command_totalPrice").val(html);
+      });
+    });
+  });
+  
+  
+
+</script>

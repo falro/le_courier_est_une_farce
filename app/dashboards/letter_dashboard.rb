@@ -12,9 +12,15 @@ class LetterDashboard < Administrate::BaseDashboard
     id: Field::Number,
     name: Field::String,
     description: Field::Text,
-    photo: Field::PaperclipField,
+    photo: PaperclipField,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    weight: Field::Number,
+    price: Field::Number.with_options(
+    title: "Price",
+    prefix: "$",
+    multiplier: 0.01,
+    decimals: 2,),
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -26,6 +32,8 @@ class LetterDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :price,
+    :weight,
     :type_letter,
   ].freeze
 
@@ -35,6 +43,8 @@ class LetterDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :price,
+    :weight,
     :photo,
     :type_letter,
     :created_at,
@@ -48,13 +58,15 @@ class LetterDashboard < Administrate::BaseDashboard
     :type_letter,
     :name,
     :description,
+    :price,
+    :weight,
     :photo,
   ].freeze
 
   # Overwrite this method to customize how letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(letter)
-  #   "Letter ##{letter.id}"
-  # end
+  def display_resource(letter)
+    "#{letter.name}"
+  end
 end

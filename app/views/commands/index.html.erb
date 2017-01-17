@@ -6,12 +6,24 @@
   <thead>
     <tr>
       <th colspan="3">
-        <%= form_for Command.new do |f| %>
-         <%= f.collection_select :type_letter, TypeLetter.all.order(:name),:name, :name, include_blank: true %>
-         <%= f.collection_select :letter, Letter.all.order(:name),:name, :name, include_blank: true %>
-         <%= f.collection_select :prank_type, PrankType.all.order(:name), :name, :name, include_blank: true %>
-         <%= f.collection_select :prank, Prank.all.order(:name),:name, :name, include_blank: true %>
+        <%= form_for @command do |f| %>
+        
+          <%= f.label :prank_type %> <br />
+          <%= f.collection_select :prank_type_id, PrankType.all.order(:name), :name, :name, include_blank: true %><br />
+          
+          <%= f.label :prank %> <br />
+          <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
+          
+          <br>
+          <br>
+          <%= f.collection_select :type_letter, TypeLetter.all.order(:name), :name, :name, include_blank: true %>
+          <%= f.collection_select :letter, Letter.all.order(:name), :name, :name, include_blank: true %>
+          
+          <div class="actions">
+            <%= f.submit %>   
+          </div>
         <% end %>
+        
       </th>
     </tr>
   </thead>

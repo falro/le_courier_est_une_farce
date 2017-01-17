@@ -20,6 +20,8 @@
             
             <li>
               <%= link_to('Logout', destroy_user_session_path, :method => :delete, :class => "headerNavElement") %> 
+            </li>
+            <li>
               <%= link_to('Edit registration', edit_user_registration_path, :class => "headerNavElement") %>
             </li>
             <% if current_user.admin %>
@@ -30,6 +32,8 @@
           <% else %>
             <li>
               <%= link_to('Login', new_user_session_path, :class => "headerNavElement") %>  
+            </li>
+            <li>
               <%= link_to('Register', new_user_registration_path, :class => "headerNavElement")  %>
             </li>
           <% end %>

@@ -24,7 +24,7 @@
   <div class="field">
     <div class="titleForLabelOnForm">
       <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <div class="titleForLabelOnForm">
+    </div>
     <div class="containerTextfieldForm">
       <%= f.password_field :password, autocomplete: "off",  class: 'textfieldForForm' %>
     </div>
@@ -42,20 +42,29 @@
     </div>
     <div class="containerTextfieldForm">
       <%= f.password_field :password_confirmation, autocomplete: "off",  class: 'textfieldForForm'  %>
+    </div>
   </div>
 
   <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+    <div class="titleForLabelOnForm">
+      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.password_field :current_password, autocomplete: "off",  class: 'textfieldForForm'  %>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
+  
+  <div class="containerTextfieldForm">
+    <div class="actions">
+      <%= f.submit "Update", class: 'buttonForm' %>
+    </div>
   </div>
 <% end %>
 
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<div class="containerTextfieldForm">
+  <h3>Cancel my account</h3>
+  
+  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  
+  <%= link_to "Back", :back %>
+</div>

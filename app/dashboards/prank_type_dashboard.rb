@@ -47,7 +47,7 @@ class PrankTypeDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how prank types are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(prank_type)
-  #   "PrankType ##{prank_type.id}"
-  # end
+  def display_resource(prank_type)
+    "#{prank_type.name}"
+  end
 end

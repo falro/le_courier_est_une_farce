@@ -1,23 +1,55 @@
 <%= form_for(@command) do |f| %>
   <div class="field">
-  <%= f.label :prank_type %> <br />
-  <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
+    <%= f.label :prank_type %> <br />
+    <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
   </div>
   <div class="field">
-  <%= f.label :prank %> <br />
-  <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
+    <%= f.label :prank %> <br />
+    <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
   </div>
   <br>
   <br>
-  <%= f.collection_select :type_letter, TypeLetter.all.order(:name), :name, :name, include_blank: true %>
-  <%= f.collection_select :letter, Letter.all.order(:name), :name, :name, include_blank: true %>
-      
+  <div class="field">
+    <%= f.label :type_letter %> <br />
+    <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
+  </div>
+  <div class="field">
+    <%= f.label :letter %> <br />
+    <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
+  </div>
+  
+  <div class="containerTextfieldForm">
+    <%= f.label :message %> <br />
+    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>   
   </div>
 <% end %>
 
 <script>
+  jQuery(function() {
+  var states;
+  $('#command_letter_id').parent().hide();
+    states = $('#command_letter_id').html();
+    console.log(states);
+    return $('#command_type_letter_id').change(function() {
+      var country, escaped_country, options;
+      country = $('#command_type_letter_id :selected').text();
+      escaped_country = country.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options = $(states).filter("optgroup[label=" + escaped_country + "]").html();
+      console.log(options);
+      if (options) {
+        $('#command_letter_id').html(options);
+        return $('#command_letter_id').parent().show();
+      } else {
+        $('#command_letter_id').empty();
+        return $('#command_letter_id').parent().hide();
+      }
+    });
+  });
+  
   jQuery(function() {
   var states;
   $('#command_prank_id').parent().hide();

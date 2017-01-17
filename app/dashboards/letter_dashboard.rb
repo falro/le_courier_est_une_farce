@@ -62,7 +62,7 @@ class LetterDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(letter)
-  #   "Letter ##{letter.id}"
-  # end
+  def display_resource(letter)
+    "#{letter.name}"
+  end
 end

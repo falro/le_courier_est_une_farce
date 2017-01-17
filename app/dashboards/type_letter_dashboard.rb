@@ -47,7 +47,7 @@ class TypeLetterDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how type letters are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(type_letter)
-  #   "TypeLetter ##{type_letter.id}"
-  # end
+  def display_resource(type_letter)
+    "#{type_letter.name}"
+  end
 end

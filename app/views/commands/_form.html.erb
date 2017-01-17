@@ -18,9 +18,16 @@
     <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
   </div>
   
+   <div class="field">
+    <%= link_to 'Calc', '#', class: 'btn btn-success', id: 'calc_price' %>
+  </div>
+  
   <div class="containerTextfieldForm">
     <%= f.label :message %> <br />
-    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %>
+    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+    
+    <%= f.label :totalPrice %> <br /> 
+    <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
   </div>
   
   <div class="actions">
@@ -30,11 +37,11 @@
 
 <script>
   jQuery(function() {
-  var states;
-  $('#command_letter_id').parent().hide();
+    var states;
+    $('#command_letter_id').parent().hide();
     states = $('#command_letter_id').html();
     console.log(states);
-    return $('#command_type_letter_id').change(function() {
+    $('#command_type_letter_id').change(function() {
       var country, escaped_country, options;
       country = $('#command_type_letter_id :selected').text();
       escaped_country = country.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
@@ -42,33 +49,48 @@
       console.log(options);
       if (options) {
         $('#command_letter_id').html(options);
-        return $('#command_letter_id').parent().show();
+        $('#command_letter_id').parent().show();
       } else {
         $('#command_letter_id').empty();
-        return $('#command_letter_id').parent().hide();
+        $('#command_letter_id').parent().hide();
       }
+    });
+
+    var states2;
+    $('#command_prank_id').parent().hide();
+    states2 = $('#command_prank_id').html();
+    console.log(states2);
+    $('#command_prank_type_id').change(function() {
+      var country2, escaped_country2, options2;
+      country2 = $('#command_prank_type_id :selected').text();
+      escaped_country2 = country2.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
+      options2 = $(states2).filter("optgroup[label=" + escaped_country2 + "]").html();
+      console.log(options2);
+      if (options2) {
+        $('#command_prank_id').html(options2);
+        $('#command_prank_id').parent().show();
+      } else {
+        $('#command_prank_id').empty();
+        $('#command_prank_id').parent().hide();
+      }
+    });
+    
+    $('#calc_price').on('click', function() {
+      prank_id = $('#command_prank_id :selected').val();
+      letter_id = $('#command_letter_id :selected').val();
+      
+      $.ajax({
+        url: "/commands/price?prank_id=" + prank_id + "&letter_id=" + letter_id
+      }).done(function(html) {
+        $("#command_totalPrice").val(html);
+      });
     });
   });
   
-  jQuery(function() {
-  var states;
-  $('#command_prank_id').parent().hide();
-    states = $('#command_prank_id').html();
-    console.log(states);
-    return $('#command_prank_type_id').change(function() {
-      var country, escaped_country, options;
-      country = $('#command_prank_type_id :selected').text();
-      escaped_country = country.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1');
-      options = $(states).filter("optgroup[label=" + escaped_country + "]").html();
-      console.log(options);
-      if (options) {
-        $('#command_prank_id').html(options);
-        return $('#command_prank_id').parent().show();
-      } else {
-        $('#command_prank_id').empty();
-        return $('#command_prank_id').parent().hide();
-      }
-    });
-  });
+  
+  
+  
+  
+  
   
 </script>

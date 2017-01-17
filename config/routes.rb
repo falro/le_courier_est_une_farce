@@ -22,7 +22,11 @@ Rails.application.routes.draw do
   resources :prank_types
   
     # Command : page
-  resources :commands
+  resources :commands do
+    collection do
+      get 'price'
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

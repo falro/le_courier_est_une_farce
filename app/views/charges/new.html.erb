@@ -1,18 +1,26 @@
-<%= form_tag charges_path do %>
+<%= form_tag command_charges_path do %>
   <article>
-    <% if flash[:error].present? %>
-      <div id="error_explanation">
-        <p><%= flash[:error] %></p>
-      </div>
-    <% end %>
-    <label class="amount">
-      <span>Amount: $5.00</span>
-    </label>
-  </article>
+    <% if @command.payment == true %>
+      <span> Paiement déjà effectué. </span><br>
+      <%= link_to('retour', root_path) %>
+    <% else %>
+      <% if flash[:error].present? %>
+        <div id="error_explanation">
+          <p><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <label class="amount">
+        <span>Amount: <%= number_to_currency( @command.totalPrice) %></span>
+      </label>
+  
+    </article>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="A month's subscription"
-          data-amount="500"
-          data-locale="auto"></script>
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Paiement farce"
+            data-amount= <%= (@command.totalPrice*100) %>
+            data-locale="auto">
+    </script>
+  
+  <% end %>
 <% end %>

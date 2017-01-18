@@ -18,7 +18,9 @@ class CommandDashboard < Administrate::BaseDashboard
     message: Field::String,
     OrderSend: Field::Boolean,
     totalPrice: Field::Number,
+    payment: Field::Boolean,
     Address: Field::String
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -32,6 +34,7 @@ class CommandDashboard < Administrate::BaseDashboard
     :prank_type,
     :prank,
     :totalPrice,
+    :payment,
     :OrderSend,
     :Address
   ].freeze
@@ -47,6 +50,7 @@ class CommandDashboard < Administrate::BaseDashboard
     :prank_type,
     :prank,
     :totalPrice,
+    :payment,
     :OrderSend,
     :Address,
   ].freeze

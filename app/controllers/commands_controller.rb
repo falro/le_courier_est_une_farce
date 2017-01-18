@@ -4,7 +4,7 @@ class CommandsController < ApplicationController
   def price
     @prank = Prank.find(params[:prank_id])
     @letter = Letter.find(params[:letter_id])
-    @price = (@prank.price*@letter.weight/10)+@letter.price
+    @price = (@prank.price*@letter.weight/100)+@letter.price
   end
 
   # GET /commands

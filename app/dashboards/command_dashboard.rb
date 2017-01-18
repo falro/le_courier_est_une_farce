@@ -16,6 +16,8 @@ class CommandDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     message: Field::String,
+    OrderSend: Field::Boolean,
+    totalPrice: Field::Number
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -24,33 +26,33 @@ class CommandDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :type_letter,
+    :letter,
     :prank_type,
     :prank,
-    :letter,
-    :type_letter,
+    :totalPrice,
+    :OrderSend,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :prank_type,
-    :prank,
-    :letter,
-    :type_letter,
     :id,
     :created_at,
     :message,
+    :type_letter,
+    :letter,
+    :prank_type,
+    :prank,
+    :totalPrice,
+    :OrderSend,
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :prank_type,
-    :prank,
-    :letter,
-    :type_letter,
-    :message,
+    :OrderSend,
   ].freeze
 
   # Overwrite this method to customize how commands are displayed

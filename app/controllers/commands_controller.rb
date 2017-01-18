@@ -42,7 +42,7 @@ class CommandsController < ApplicationController
     respond_to do |format|
       format.js
       if @command.save
-        format.html { redirect_to @command, notice: 'Command was successfully created.' }
+        format.html { redirect_to new_command_charge_path(@command), notice: 'Command was successfully created.' }
         format.json { render :show, status: :created, location: @command }
       else
         format.html { render :new }

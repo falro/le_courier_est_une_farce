@@ -1,1 +1,5 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<% @command = Command.find(params[:command_id]) %>
+
+<h2>Thanks, you paid <strong> <%= number_to_currency( @command.totalPrice) %></strong>!</h2>
+
+<%= link_to('retour', root_path) %>

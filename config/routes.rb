@@ -26,7 +26,9 @@ Rails.application.routes.draw do
     collection do
       get 'price'
     end
+    resources :charges
   end
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -77,7 +79,7 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   
-  resources :charges
+  
   #Ressource for stipe
   #Payment gem
   

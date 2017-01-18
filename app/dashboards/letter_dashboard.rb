@@ -16,11 +16,7 @@ class LetterDashboard < Administrate::BaseDashboard
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     weight: Field::Number,
-    price: Field::Number.with_options(
-    title: "Price",
-    prefix: "$",
-    multiplier: 0.01,
-    decimals: 2,),
+    price: Field::Number,
   }.freeze
 
   # COLLECTION_ATTRIBUTES

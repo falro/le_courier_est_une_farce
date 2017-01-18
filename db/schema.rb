@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170118090118) do
+
 
   create_table "commands", force: :cascade do |t|
     t.integer  "prank_type_id"
@@ -24,6 +26,8 @@ ActiveRecord::Schema.define(version: 20170118090118) do
     t.integer  "totalPrice"
     t.boolean  "OrderSend",      default: false
     t.boolean  "payment",        default: false
+    t.string   "Address"
+
   end
 
   add_index "commands", ["letter_id"], name: "index_commands_on_letter_id"

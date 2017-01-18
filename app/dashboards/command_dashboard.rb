@@ -19,6 +19,8 @@ class CommandDashboard < Administrate::BaseDashboard
     OrderSend: Field::Boolean,
     totalPrice: Field::Number,
     payment: Field::Boolean,
+    Address: Field::String
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -34,6 +36,7 @@ class CommandDashboard < Administrate::BaseDashboard
     :totalPrice,
     :payment,
     :OrderSend,
+    :Address
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -49,6 +52,7 @@ class CommandDashboard < Administrate::BaseDashboard
     :totalPrice,
     :payment,
     :OrderSend,
+    :Address,
   ].freeze
 
   # FORM_ATTRIBUTES

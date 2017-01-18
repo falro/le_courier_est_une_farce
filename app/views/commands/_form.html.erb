@@ -1,50 +1,52 @@
 <%= form_for(@command) do |f| %>
-  <div class="field">
-    <%= f.label :prank_type, :class => "labelOrder"%> <br />
-    <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
-  </div>
-  <div class="field">
-    <%= f.label :prank %> <br />
-    <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
-  </div>
-  <br>
-  <br>
-  <div class="field">
-    <%= f.label :type_letter %> <br />
-    <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
-  </div>
-  <div class="field">
-    <%= f.label :letter %> <br />
-    <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
-  </div>
-  
-   <div class="field">
-    <%= link_to 'Calc', '#', class: 'btn btn-success', id: 'calc_price' %>
-  </div>
-  
-  <div class="containerTextfieldForm">
-    <%= f.label :message %> <br />
-    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+  <div class=formOrder>
+    <div class="field">
+      <%= f.label :prank_type, :class => "labelOrder"%> <br />
+      <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true, :class => 'collectionOrder' %><br />
+    </div>
+    <div class="field">
+      <%= f.label :prank, :class => "labelOrder" %> <br />
+      <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true, :class => "collectionOrder" %>
+    </div>
+    <br>
+    <br>
+    <div class="field">
+      <%= f.label :type_letter, :class => "labelOrder" %> <br />
+      <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
+    </div>
+    <div class="field">
+      <%= f.label :letter, :class => "labelOrder" %> <br />
+      <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
+    </div>
     
-    <%= f.label :totalPrice %> <br /> 
-    <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
+     <div class="field">
+      <%= link_to 'Calculer le prix de votre commande', '#', class: 'btn btn-success btnOrderCalc', id: 'calc_price' %>
+    </div>
+    
+    <div class="containerTextfieldForm">
+      <%= f.label :message, :class => "labelOrder" %> <br />
+      <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+      
+      <%= f.label :totalPrice, :class => "labelOrder" %> <br /> 
+      <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.label :Address, :class => "labelOrder" %> <br />
+      <%= f.text_field :Address, :id => "user_input_autocomplete_address", autocomplete: "off", class: 'textfieldForForm' %><br>
+      <div class="field">
+        <input id="street_number" name="street_number" class="textfieldForForm" disabled>
+        <input id="route" name="route" class="textfieldForForm" disabled>
+        <input id="locality" name="locality" class="textfieldForForm" disabled>
+        <input id="country" name="country" class="textfieldForForm" disabled>
+      </div>
+    </div>
+   
+    <div class="containerTextfieldForm">
+      <div class="actions">
+        <%= f.submit "Commander", class: 'buttonForm' %>   
+      </div>
+    </div>
   </div>
-  
-  <%= f.label :Address %> <br />
-  <%= f.text_field :Address, :id => "user_input_autocomplete_address", autocomplete: "off", class: 'textfieldForForm' %>
- 
-  <input id="street_number" name="street_number" disabled>
-  <input id="route" name="route" disabled>
-  <input id="locality" name="locality" disabled>
-  <input id="country" name="country" disabled>
-  
-  
-  
-  
-  <div class="actions">
-    <%= f.submit %>   
-  </div>
-  
 <% end %>
 
 <!-- Custom JS code to bind to Autocomplete API -->

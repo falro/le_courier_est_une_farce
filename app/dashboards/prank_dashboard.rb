@@ -33,8 +33,8 @@ class PrankDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
-    :price,
     :prank_type,
+    :price,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,9 +43,9 @@ class PrankDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :prank_type,
     :price,
     :photo,
-    :prank_type,
     :created_at,
     :updated_at,
   ].freeze
@@ -56,9 +56,9 @@ class PrankDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :name,
     :description,
+    :prank_type,
     :price,
     :photo,
-    :prank_type,
   ].freeze
 
   # Overwrite this method to customize how pranks are displayed

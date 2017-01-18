@@ -48,3 +48,7 @@ Sign In = User must be connected after subscription for use all web-site's funct
 
 #Pour le Layout administrate
 Rails generate administrate:views:layout
+
+
+Clé API Google Javascript
+AIzaSyDGYsbdMyZtVathV3VFLRTCH1OGD5PSygc 

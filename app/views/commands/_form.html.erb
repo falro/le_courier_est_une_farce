@@ -1,38 +1,87 @@
 <%= form_for(@command) do |f| %>
-  <div class="field">
-    <%= f.label :prank_type %> <br />
-    <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true %><br />
-  </div>
-  <div class="field">
-    <%= f.label :prank %> <br />
-    <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true %>
-  </div>
-  <br>
-  <br>
-  <div class="field">
-    <%= f.label :type_letter %> <br />
-    <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
-  </div>
-  <div class="field">
-    <%= f.label :letter %> <br />
-    <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
-  </div>
-  
-   <div class="field">
-    <%= link_to 'Calc', '#', class: 'btn btn-success', id: 'calc_price' %>
-  </div>
-  <div class="containerTextfieldForm">
-    <%= f.label :message %> <br />
-    <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+  <div class=formOrder>
+    <div class="field">
+      <%= f.label :prank_type, :class => "labelOrder"%> <br />
+      <%= f.collection_select :prank_type_id, PrankType.order(:name), :id, :name, include_blank: true, :class => 'collectionOrder' %><br />
+    </div>
+    <div class="field">
+      <%= f.label :prank, :class => "labelOrder" %> <br />
+      <%= f.grouped_collection_select :prank_id, PrankType.order(:name), :pranks, :name, :id, :name, include_blank: true, :class => "collectionOrder" %>
+    </div>
+    <br>
+    <br>
+    <div class="field">
+      <%= f.label :type_letter, :class => "labelOrder" %> <br />
+      <%= f.collection_select :type_letter_id, TypeLetter.order(:name), :id, :name, include_blank: true %><br />
+    </div>
+    <div class="field">
+      <%= f.label :letter, :class => "labelOrder" %> <br />
+      <%= f.grouped_collection_select :letter_id, TypeLetter.order(:name), :letters, :name, :id, :name, include_blank: true %>
+    </div>
     
-    <%= f.label :totalPrice %> <br /> 
-    <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
-  </div>
-  
-  <div class="actions">
-    <%= f.submit %>   
+     <div class="field">
+      <%= link_to 'Calculer le prix de votre commande', '#', class: 'btn btn-success btnOrderCalc', id: 'calc_price' %>
+    </div>
+    
+    <div class="containerTextfieldForm">
+      <%= f.label :message, :class => "labelOrder" %> <br />
+      <%= f.text_field :message, autocomplete: "off",  class: 'textfieldForForm' %><br>
+      
+      <%= f.label :totalPrice, :class => "labelOrder" %> <br /> 
+      <%= f.text_field :totalPrice, autocomplete: "off", :readonly => true,  class: 'textfieldForForm' %>
+    </div>
+    <div class="containerTextfieldForm">
+      <%= f.label :Address, :class => "labelOrder" %> <br />
+      <%= f.text_field :Address, :id => "user_input_autocomplete_address", autocomplete: "off", class: 'textfieldForForm' %><br>
+      <div class="field">
+        <input id="street_number" name="street_number" class="textfieldForForm" disabled>
+        <input id="route" name="route" class="textfieldForForm" disabled>
+        <input id="locality" name="locality" class="textfieldForForm" disabled>
+        <input id="country" name="country" class="textfieldForForm" disabled>
+      </div>
+    </div>
+   
+    <div class="containerTextfieldForm">
+      <div class="actions">
+        <%= f.submit "Commander", class: 'buttonForm' %>   
+      </div>
+    </div>
   </div>
 <% end %>
+
+<!-- Custom JS code to bind to Autocomplete API -->
+<!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
+<!-- We'll detail this file in the article -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDGYsbdMyZtVathV3VFLRTCH1OGD5PSygc">
+</script>
+<script>
+  function initializeAutocomplete(id) {
+    var element = document.getElementById(id);
+    if (element) {
+      var autocomplete = new google.maps.places.Autocomplete(element, { types: ['geocode'] });
+      google.maps.event.addListener(autocomplete, 'place_changed', onPlaceChanged);
+    }
+  }
+
+  function onPlaceChanged() {
+    var place = this.getPlace();
+    // console.log(place);  // Uncomment this line to view the full object returned by Google API.
+  
+    for (var i in place.address_components) {
+      var component = place.address_components[i];
+      for (var j in component.types) {  // Some types are ["country", "political"]
+        var type_element = document.getElementById(component.types[j]);
+        if (type_element) {
+          type_element.value = component.long_name;
+        }
+      }
+    }
+  }
+  google.maps.event.addDomListener(window, 'load', function() {
+    initializeAutocomplete('user_input_autocomplete_address');
+  }); 
+</script> 
+
 
 <script>
   jQuery(function() {

@@ -17,7 +17,10 @@ class CommandDashboard < Administrate::BaseDashboard
     updated_at: Field::DateTime,
     message: Field::String,
     OrderSend: Field::Boolean,
-    totalPrice: Field::Number
+    totalPrice: Field::Number,
+    payment: Field::Boolean,
+    Address: Field::String
+
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -31,7 +34,9 @@ class CommandDashboard < Administrate::BaseDashboard
     :prank_type,
     :prank,
     :totalPrice,
+    :payment,
     :OrderSend,
+    :Address
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,7 +50,9 @@ class CommandDashboard < Administrate::BaseDashboard
     :prank_type,
     :prank,
     :totalPrice,
+    :payment,
     :OrderSend,
+    :Address,
   ].freeze
 
   # FORM_ATTRIBUTES

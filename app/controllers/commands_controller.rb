@@ -42,7 +42,7 @@ class CommandsController < ApplicationController
     respond_to do |format|
       format.js
       if @command.save
-        format.html { redirect_to @command, notice: 'Command was successfully created.' }
+        format.html { redirect_to new_command_charge_path(@command), notice: 'Command was successfully created.' }
         format.json { render :show, status: :created, location: @command }
       else
         format.html { render :new }
@@ -83,6 +83,6 @@ class CommandsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def command_params
-      params.require(:command).permit(:prank_type_id, :prank_id, :type_letter_id, :letter_id, :message, :totalPrice)
+      params.require(:command).permit(:prank_type_id, :prank_id, :type_letter_id, :letter_id, :message, :totalPrice, :Address)
     end
 end

@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117143348) do
+ActiveRecord::Schema.define(version: 20170117233105) do
 
   create_table "commands", force: :cascade do |t|
     t.integer  "prank_type_id"
     t.integer  "prank_id"
     t.integer  "letter_id"
     t.integer  "type_letter_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.string   "message"
     t.integer  "totalPrice"
+    t.boolean  "OrderSend",      default: false
   end
 
   add_index "commands", ["letter_id"], name: "index_commands_on_letter_id"

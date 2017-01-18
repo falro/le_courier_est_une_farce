@@ -32,9 +32,9 @@ class LetterDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :type_letter,
     :price,
     :weight,
-    :type_letter,
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -43,10 +43,10 @@ class LetterDashboard < Administrate::BaseDashboard
     :id,
     :name,
     :description,
+    :type_letter,
     :price,
     :weight,
     :photo,
-    :type_letter,
     :created_at,
     :updated_at,
   ].freeze
@@ -55,9 +55,9 @@ class LetterDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
-    :type_letter,
     :name,
     :description,
+    :type_letter,
     :price,
     :weight,
     :photo,
